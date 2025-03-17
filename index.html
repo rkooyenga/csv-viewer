@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Reader in Pure Vanilla JS</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV/TSV Viewer</title><link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<button class="hamburger-icon" id="togglePanelButton"></button>
+<div id="optionsPanel">
+  <button class="menu-close-icon">&times;</button>
+  <!--label(for="urlInput") Load Remote URL:-->
+  <button id="loadUrlButton">Load Remote URL</button>
+  <input id="urlInput" type="text"/>
+  <!--label(for="fileInput") Load Local File:-->
+  <input id="fileInput" type="file"/>
+  <!--label(for="pasteData") Raw Dog Paste Data:-->
+  <button id="loadPasteButton">Load Pasted Data</button>
+  <textarea id="pasteData" rows="2"></textarea>
+  <label for="delimiter">Delimiter:</label>
+  <input id="delimiter" type="text" value=","/>
+</div>
+<table id="dataTable"></table>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script><script  src="./js/script.js"></script>
+
+</body>
+</html>
