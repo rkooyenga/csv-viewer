@@ -1,13 +1,7 @@
 # csv-viewer
 Flexible Parsing of CSV Data
 
-Putting the See back in CSV. Confession,
-
-
-
-# CSV/TSV Viewer
-
-A simple, lightweight web-based viewer for CSV and TSV files. It allows you to load data from remote URLs, local files, or by pasting directly into the browser.
+A simple, lightweight web-based viewer for CSV and TSV files. It allows you to load data from remote URLs, local files, or by pasting directly into the browser. Putting the See back in CSV
 
 ## Features
 
@@ -50,17 +44,11 @@ A simple, lightweight web-based viewer for CSV and TSV files. It allows you to l
 * HTML (Pug)
 * CSS
 * JavaScript
-
+* Jquery
+* 
 ## Example URL Parameter
 
-To load a file directly from a url, add the url as a parameter.
-
-
-
-
-I've got a bias against office suites be they on or offline apps, they're bloated, slow, crash under pressure and are often overcomplicating things. Text editors are fast, resilient, universal compatibility, and cool. The space in between is markup. Plain text, with formatting and style powers. Theres probably a million CSV files right here on Github. I'm not downloading all that but I made read a few and for viewing data, word precessors, notpads, often  Well like plain text markup schemes are the the intersection of usually open csv data in notepad/nano text editors. Because you can be in and out before the office suite guy even loads up a ready page. What is it though? Well, do you really want to go through the load time and ordeal of a office suite session when you just want to inspect a simple table in plain text? Well this is kinda for that. Maybe the file(s) are remote and you want to peruse it not necessarily download or open a series of them but certain online spreadsheet services are also slow and a laborious s here's times when you 
-
-Nice easy reading layout for CSV string data with a rolling highlight for focused row. If you just want to quickly read some data this will take it from a a local file. Or as it's default demo, any of a million .csv files on Github in remote URL mode. Or, try passing to ?url= on load. Or (yes there's somehow more) you can raw dog it and just paste that data in or type it out. You're probably wondering what the catch is it's so great. I hear you it's so awesome i'm suspicious of myself! 
+To load a file directly from a url, just add the url as a parameter ``?url=[csv file]``
 
 
 Project is based on a chromebook releases page circa 2012. What an exciting time.  HTML5, CSS3, WebGL, Chrome Extensions, ChromeOS. I loved the Chromium team's simple but wonderfully readable coloring scheme on that particular page. So I thought I'd breathe a little life back into as a nod to them. But I think it's legit useful too. Just need to finish styling the panel. 
