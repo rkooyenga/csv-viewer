@@ -1,4 +1,29 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+}
+
+if ('launchQueue' in window.navigator) {
+    window.navigator.launchQueue.setConsumer(async launchParams => { // Added 'async' here
+        if (!launchParams.files.length) {
+            return;
+        }
+        for (const fileHandle of launchParams.files) {
+            try {
+                const file = await fileHandle.getFile();
+                const text = await file.text();
+                const delimiter = document.getElementById('delimiter').value;
+                loadData(text, delimiter);
+            } catch (error) {
+                console.error("Error processing file:", error);
+                alert("Error processing file: " + error.message); // Added error handling
+            }
+        }
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
+
   const togglePanelButton = document.getElementById("togglePanelButton");
   const optionsPanel = document.getElementById("optionsPanel");
   const closePanelButton = document.querySelector(".menu-close-icon");
@@ -68,13 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => alert("Error loading URL: " + error.message));
   });
 
-  document.getElementById("fileInput").addEventListener("change", (event) => {
+document.getElementById('fileInput').addEventListener('change', (event) => {
     const file = event.target.files[0];
-    const reader = new FileReader();
-    const delimiter = document.getElementById("delimiter").value;
-    reader.onload = (e) => loadData(e.target.result, delimiter);
-    reader.readAsText(file);
-  });
+    if (file) { 
+        const reader = new FileReader();
+        const delimiter = document.getElementById('delimiter').value;
+        reader.onload = (e) => loadData(e.target.result, delimiter);
+        reader.readAsText(file);
+    } else {
+        console.warn("No file selected.");
+        alert("Please select a file."); 
+    }
+});
 
   document.getElementById("loadPasteButton").addEventListener("click", () => {
     const data = document.getElementById("pasteData").value;
@@ -99,25 +129,37 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => loadData(data, delimiter))
       .catch((error) => alert("Error loading default URL: " + error.message));
   }
+  
+  
+function shareData() {
+    const table = document.getElementById('dataTable');
+    const csvData = tableToCSV(table); // Convert table to CSV string
+
+    if (navigator.share) {
+        navigator.share({
+            title: 'Shared CSV Data',
+            text: 'Here is the CSV data:',
+            files: [new File([csvData], 'data.csv', { type: 'text/csv' })]
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+        alert('Web Share API not supported in this browser.');
+    }
+}
+
+function tableToCSV(table) {
+    const rows = Array.from(table.querySelectorAll('tr'));
+    const csv = rows.map(row => {
+        const cells = Array.from(row.querySelectorAll('th, td'));
+        return cells.map(cell => `"${cell.textContent.replace(/"/g, '""')}"`).join(',');
+    }).join('\n');
+    return csv;
+}
+
+// todo share button activate in html and css on androids  
+/* document.getElementById('shareButton').addEventListener('click', shareData); 
+}); */
+  
+
 });
-
-
-
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-}
-
-if ('launchQueue' in window.navigator) {
-    window.navigator.launchQueue.setConsumer(launchParams => {
-        if (!launchParams.files.length) {
-            return;
-        }
-        for (const fileHandle of launchParams.files) {
-            const file = await fileHandle.getFile();
-            const text = await file.text();
-            const delimiter = document.getElementById('delimiter').value;
-            loadData(text, delimiter);
-        }
-    });
-}
