@@ -24,6 +24,15 @@ if ('launchQueue' in window.navigator) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  
+// local storage for typed data cus why not
+var boxdata = document.getElementById('pasteData');
+if (localStorage.getItem('value')){
+  boxdata.value = localStorage.getItem('value');
+} else {
+  boxdata.placeholder = "paste or type raw csv here like:\nname,company,email;\nlucille johnston,big melons,lucy@bigmelon.com;\n";
+}  
+
   const togglePanelButton = document.getElementById("togglePanelButton");
   const optionsPanel = document.getElementById("optionsPanel");
   const closePanelButton = document.querySelector(".menu-close-icon");
