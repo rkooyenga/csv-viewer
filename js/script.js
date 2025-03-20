@@ -118,6 +118,7 @@ document.getElementById('fileInput').addEventListener('change', (event) => {
   document.getElementById("loadPasteButton").addEventListener("click", () => {
     const data = document.getElementById("pasteData").value;
     const delimiter = document.getElementById("delimiter").value;
+    window.localStorage.setItem("value", data);
     loadData(data, delimiter);
   });
 
