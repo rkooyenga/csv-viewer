@@ -95,7 +95,11 @@ if (localStorage.getItem('csv-viewer-1')){
 
   document.getElementById("loadUrlButton").addEventListener("click", () => {
     const url = document.getElementById("urlInput").value;
-    const delimiter = document.getElementById("delimiter").value;
+  if (!url || url.trim() === '') {
+    alert("Please enter a valid URL");
+    return;
+  }    
+      const delimiter = document.getElementById("delimiter").value;
     fetch(url, { mode: "cors" })
       .then((response) => response.text())
       .then((data) => loadData(data, delimiter))
