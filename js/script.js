@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
 // local storage for typed data cus why not
 var boxdata = document.getElementById('pasteData');
-if (localStorage.getItem('value')){
-  boxdata.value = localStorage.getItem('value');
+if (localStorage.getItem('csv-viewer-1')){
+  boxdata.value = localStorage.getItem('csv-viewer-1');
 } else {
   boxdata.placeholder = "paste or type raw csv here like:\nname,company,email;\nlucille johnston,big melons,lucy@bigmelon.com;\n";
 }  
@@ -118,7 +118,7 @@ document.getElementById('fileInput').addEventListener('change', (event) => {
   document.getElementById("loadPasteButton").addEventListener("click", () => {
     const data = document.getElementById("pasteData").value;
     const delimiter = document.getElementById("delimiter").value;
-    window.localStorage.setItem("value", data);
+    window.localStorage.setItem("csv-viewer-1", data);
     loadData(data, delimiter);
   });
 
