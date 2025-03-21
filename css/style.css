@@ -211,6 +211,7 @@ tbody tr.highlighted {
   }
 }
 
+
 @media only screen and (max-width: 479px) {
   body,
   table,
@@ -220,9 +221,11 @@ tbody tr.highlighted {
     font-size: 0.9em;
   }
   #optionsPanel {
+    width: 100%;
     max-width: 100vw;
+    height: 100%;
     max-height: 100vh;
-    overflow-x: auto;
+    overflow-y: scroll;
     white-space: pre-line;
     padding: 0;
     margin: 0;
@@ -236,15 +239,6 @@ tbody tr.highlighted {
     );
   }
 }
-
-/*
-@media only screen and (max-width:479px){
-  body,table, tbody, div, p{font-size:.9em;}
-  #optionsPanel{max-width:100vw;max-height:100vh;overflow-x:auto;white-space:pre-line;padding:0;margin:0;justify-content:left;gap:2px;font-size:1em;background-image:linear-gradient(black,rgba(0,0,0,0.7),rgba(0,0,0,0.9));}
-}
-*/
-
-
 
 /* safari and mobile fixes */
 html,
@@ -262,3 +256,4 @@ body,
   -webkit-touch-action: manipulation; /* account for touch/active differences */
   touch-action: manipulation;
 }
+
