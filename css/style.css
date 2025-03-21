@@ -81,20 +81,35 @@ tbody tr.highlighted {
 
 #togglePanelButton {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: -6px;
   padding: 7px;
-  background-color: rgba(15, 15, 15, 0.8);
+  background-color: rgba(15, 15, 15, 0.7);
   border: none;
   cursor: pointer;
   color: #eee;
-  border-radius: 5px;
+  border-radius: 0px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
   z-index: 1001;
   font-size: 20px;
+  /* background:linear-gradient(45deg, rgba(0, 0, 0, 0.8),black,white,rgba(10, 10, 10, 0.9));*/
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(2px);
+  /* background:linear-gradient(45deg, rgba(30, 35, 35, 0.9),rgba(35, 35, 35, 0.9),white,rgba(35, 35, 35, 0.9));background-blend-mode:luminosity;backdrop-filter:blur(2px);opacity:.71;*/
 }
 
 .hamburger-icon::before {
   content: "☰";
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 7px;
+  padding-bottom: 1.5px;
+}
+
+#togglePanelButton:active {
+  transform: perspective(400px) rotateX(0deg) rotateY(-40deg);
 }
 
 .share-icon::before {
@@ -170,31 +185,76 @@ tbody tr.highlighted {
   margin-bottom: 15px;
 }
 
-body{
-  user-select:none;
+
+@media screen and (max-width: 700px) {
+  body {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  table {
+    width: 100% !important;
+    min-width: 350px;
+    table-layout: fixed;
+  }
+  th,
+  td {
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .menu-close-icon {
+    visibility: hidden;
+  }
 }
 
-@media screen and (min-width:990px){
+@media only screen and (max-width: 479px) {
+  body,
+  table,
+  tbody,
+  div,
+  p {
+    font-size: 0.9em;
+  }
+  #optionsPanel {
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow-x: auto;
+    white-space: pre-line;
+    padding: 0;
+    margin: 0;
+    justify-content: left;
+    gap: 2px;
+    font-size: 1em;
+    background-image: linear-gradient(
+      black,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.9)
+    );
+  }
 }
 
-@media screen and (max-width:700px){
-  body{
-    font-size:1em;
-    font-weight:bold;
-  }
-  table{
-  width: 100% !important;
-  table-layout: fixed;
-  }
-  th,td{  
-  word-break: break-word;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  }
-}
 /*
 @media only screen and (max-width:479px){
   body,table, tbody, div, p{font-size:.9em;}
   #optionsPanel{max-width:100vw;max-height:100vh;overflow-x:auto;white-space:pre-line;padding:0;margin:0;justify-content:left;gap:2px;font-size:1em;background-image:linear-gradient(black,rgba(0,0,0,0.7),rgba(0,0,0,0.9));}
 }
 */
+
+
+
+/* safari and mobile fixes */
+html,
+body,
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent; /* Remove default tap highlight - likely desired for custom row highlighting */
+  tap-highlight-color: transparent; /* Remove default tap highlight */
+  -webkit-appearance: none !important; /* Prevent default iOS styles */
+  appearance: none !important; /* Prevent default iOS styles */
+  -webkit-touch-callout: none; /* Prevents callout menus on touch */
+  touch-callout: none; /* Prevents callout menus on touch */
+  pointer-events: auto;
+  -webkit-touch-action: manipulation; /* account for touch/active differences */
+  touch-action: manipulation;
+}
