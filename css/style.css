@@ -78,13 +78,12 @@ tbody tr.highlighted {
 #optionsPanel.open {
   transform: translate(0, 0);
 }
-
 #togglePanelButton {
   position: fixed;
-  top: 15px;
+  top: 30px;
   right: -6px;
   padding: 7px;
-  background-color: rgba(15, 15, 15, 0.7);
+  background-color: rgba(15, 15, 15, 0.6);
   border: none;
   cursor: pointer;
   color: #eee;
@@ -95,18 +94,23 @@ tbody tr.highlighted {
   font-size: 20px;
   /* background:linear-gradient(45deg, rgba(0, 0, 0, 0.8),black,white,rgba(10, 10, 10, 0.9));*/
   background-blend-mode: luminosity;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
   /* background:linear-gradient(45deg, rgba(30, 35, 35, 0.9),rgba(35, 35, 35, 0.9),white,rgba(35, 35, 35, 0.9));background-blend-mode:luminosity;backdrop-filter:blur(2px);opacity:.71;*/
 }
 
 .hamburger-icon::before {
-  content: "☰";
+  content: "➕";
+  filter: brightness(10);
+  opacity: 0.8;
   text-align: center;
   display: inline-block;
   vertical-align: middle;
-  padding-left: 7px;
+  padding-left: 9px;
+  padding-right: 3px;
   padding-bottom: 1.5px;
+  font-size: 1.2em !important;
 }
+
 
 #togglePanelButton:active {
   transform: perspective(400px) rotateX(0deg) rotateY(-40deg);
