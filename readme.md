@@ -1,4 +1,4 @@
-# Easy CSV Reader with Rolling Highlight
+# CSV Reader App
 
 Nice easy reading layout for CSV string data with a rolling highlight for focused row. Lots of input options, if you just want to quickly read some data, this can open a local file.
 
