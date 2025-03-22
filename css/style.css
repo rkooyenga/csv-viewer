@@ -209,6 +209,9 @@ tbody tr.highlighted {
   .menu-close-icon {
     visibility: hidden;
   }
+ #optionsPanel label,#optionsPanel button{
+font-size:1.6em;
+}
 }
 
 
