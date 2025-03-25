@@ -23,9 +23,9 @@
   "background_color": "#222",
   "theme_color": "#007bff",
   "share_target": {
-    "action": "/index.html",
+    "action": "/share.html",
     "method": "POST",
-    "enctype": "multipart/form-data",
+    "enctype": "text/csv",
     "params": {
       "title": "title",
       "text": "text",
