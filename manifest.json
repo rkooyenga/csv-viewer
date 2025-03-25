@@ -24,7 +24,7 @@
   "theme_color": "#007bff",
   "share_target": {
     "action": "/share.html",
-    "method": "POST",
+    "method": "PUT",
     "enctype": "text/csv",
     "params": {
       "title": "title",
