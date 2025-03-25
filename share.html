@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Reader</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://rkooyenga.github.io/csv-viewer/share.html">
+  <link rel="manifest" href="./manifest.json">
+
+  <link rel="apple-touch-icon" href="./icon_192.png">
+  <link rel="shortcut icon" href="./icon_192.png">
+
+  <meta itemprop="image" content="./icon_512.png">
+  <meta itemprop="name" content="csv viewer">
+
+  <meta id="theme-color" name="theme-color" content="silver">
+
+  <meta name="author" content="https://raykooyenga.com">
+  <meta name="description" content="Versatile CSV Reader App">
+
+  <meta property="og:image" content="https://rkooyenga.github.io/csv-viewer/icon_512.png">
+  <meta property="og:site_name" content="rkooyenga.github.io/csv-viewer">
+  <meta property="og:title" content="csv viewer">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rkooyenga.github.io/csv-viewer">
+
+  <link rel="stylesheet" href="./css/style.css">
+ 
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/script.js"></script>
+  
+</head>
+<body>
+
+<button class="hamburger-icon" id="togglePanelButton"></button>
+
+
+<div id="optionsPanel">
+  <button class="menu-close-icon">&times;</button>
+<!-- todo work on share button and media query for mobile
+<button class="share-icon" id="shareButton">
+  <svg width="32" height="32" viewBox="0 0 48 48" version="1" xmlns="http://www.w3.org/2000/svg"><path fill="#317ff4" d="M38.1 31.2 19.4 24l18.7-7.2c1.5-.6 2.3-2.3 1.7-3.9-.6-1.5-2.3-2.3-3.9-1.7l-26 10C8.8 21.6 8 22.8 8 24s.8 2.4 1.9 2.8l26 10c.4.1.7.2 1.1.2 1.2 0 2.3-.7 2.8-1.9.6-1.6-.2-3.3-1.7-3.9"/><g fill="#010101"><circle cx="11" cy="24" r="7"/><circle cx="37" cy="14" r="7"/><circle cx="37" cy="34" r="7"/></g></svg>
+</button> -->
+  <label for="urlInput">Load Remote URL:</label>
+  <button id="loadUrlButton">Load Remote URL</button>
+  <input id="urlInput" type="text"/>
+  <label for="fileInput">Load Local File:</label>
+  <input id="fileInput" type="file"/>
+  <label for="pasteData">Raw Dog Paste Data:</label>
+  <button id="loadPasteButton">Load Pasted Data</button>
+  <textarea id="pasteData" rows="2"></textarea>
+  <label for="delimiter">Delimiter:</label>
+  <input id="delimiter" type="text" value=","/>
+</div>
+<table id="dataTable"></table>
+
+</body>
+</html>
